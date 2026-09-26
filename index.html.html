@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manasi Shinalkar — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    --bg: #F7F5F0;
+    --ink: #16191C;
+    --muted: #6B6F73;
+    --accent: #0B6E63;
+    --accent-warm: #B97A22;
+    --line: #DAD5C9;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #14181A;
+      --ink: #ECE9E2;
+      --muted: #9BA0A3;
+      --accent: #4FD6C4;
+      --accent-warm: #E4A94A;
+      --line: #2B3033;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181A;
+    --ink: #ECE9E2;
+    --muted: #9BA0A3;
+    --accent: #4FD6C4;
+    --accent-warm: #E4A94A;
+    --line: #2B3033;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 6rem;
+  }
+  h1, h2, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 8vw, 4rem);
+    line-height: 1.02;
+    font-optical-sizing: auto;
+  }
+  .role {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    color: var(--accent);
+    margin-top: 0.5rem;
+  }
+  .contact {
+    margin-top: 1.6rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .contact a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .contact a:hover { color: var(--accent); border-color: var(--accent); }
+
+  section { margin-top: 3.5rem; }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.4rem;
+  }
+
+  p.lede {
+    font-size: 1.05rem;
+    max-width: 62ch;
+    color: var(--ink);
+  }
+
+  .skill-row {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .skill-row:last-child { border-bottom: 1px solid var(--line); }
+  .skill-label {
+    flex: 0 0 150px;
+    font-weight: 600;
+    color: var(--accent-warm);
+    font-size: 0.92rem;
+  }
+  .skill-value { color: var(--ink); flex: 1 1 300px; font-size: 0.98rem; }
+
+  .entry { position: relative; padding-left: 1.4rem; border-left: 2px solid var(--line); padding-bottom: 2rem; }
+  .entry:last-child { padding-bottom: 0; }
+  .entry::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0.4rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .entry-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.4rem; }
+  .entry-title { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500; }
+  .entry-org { color: var(--muted); font-size: 0.95rem; }
+  .entry-date { color: var(--muted); font-size: 0.88rem; white-space: nowrap; }
+  .entry ul { margin: 0.6rem 0 0; padding-left: 1.1rem; }
+  .entry li { margin-bottom: 0.4rem; font-size: 0.97rem; }
+
+  .project { border-left: 3px solid var(--accent-warm); padding-left: 1.2rem; margin-bottom: 2rem; }
+  .project:last-child { margin-bottom: 0; }
+  .project-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 500; }
+  .project-tech { color: var(--muted); font-size: 0.85rem; margin-top: 0.15rem; margin-bottom: 0.6rem; }
+  .project ul { margin: 0; padding-left: 1.1rem; }
+  .project li { font-size: 0.96rem; margin-bottom: 0.3rem; }
+  .status-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--accent-warm);
+    border: 1px solid var(--accent-warm);
+    border-radius: 3px;
+    padding: 0.05rem 0.45rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .edu-row, .cert-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; padding: 0.7rem 0; border-top: 1px solid var(--line); }
+  .edu-row:last-child, .cert-row:last-child { border-bottom: 1px solid var(--line); }
+  .edu-name { font-weight: 600; }
+  .edu-place { color: var(--muted); font-size: 0.9rem; }
+  .edu-meta { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    .skill-label { flex-basis: 100%; }
+    .entry-date { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Manasi Shinalkar</h1>
+    <div class="role">Software Engineer — Fresher</div>
+    <div class="contact">
+      <span>Pune, Maharashtra</span>
+      <span><a href="tel:+917276448219">+91 7276448219</a> · <a href="mailto:mansishinalkar07@gmail.com">mansishinalkar07@gmail.com</a></span>
+      <span><a href="https://linkedin.com/in/manasi-shinalkar" target="_blank" rel="noopener">linkedin.com/in/manasi-shinalkar</a></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="lede">M.Sc. Computer Science graduate with a strong foundation in front-end development — HTML, CSS, and JavaScript — combined with practical experience in Java, Python, and database design. Hands-on internship experience building responsive UI components and database-backed features end to end. Methodical, detail-oriented, and genuinely curious about how good interfaces are built and maintained.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skill-row"><div class="skill-label">Frontend</div><div class="skill-value">HTML, CSS, JavaScript, Responsive Web Design</div></div>
+    <div class="skill-row"><div class="skill-label">Programming</div><div class="skill-value">Java, Python, C, SQL</div></div>
+    <div class="skill-row"><div class="skill-label">Databases</div><div class="skill-value">MySQL, SQL, JDBC (coursework), RDBMS concepts</div></div>
+    <div class="skill-row"><div class="skill-label">Core CS</div><div class="skill-value">Object-Oriented Programming, Data Structures &amp; Algorithms (coursework), Operating Systems (coursework)</div></div>
+    <div class="skill-row"><div class="skill-label">Tools</div><div class="skill-value">Git, GitHub Copilot, Claude, Eclipse, VS Code</div></div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <div>
+          <div class="entry-title">IT Intern</div>
+          <div class="entry-org">Excellencea Digital Technology Pvt Ltd</div>
+        </div>
+        <div class="entry-date">Mar 2026 – Sep 2026</div>
+      </div>
+      <ul>
+        <li>Developed responsive front-end pages and UI components for a School Management System using HTML, CSS, and JavaScript.</li>
+        <li>Built database modules and wrote SQL queries for student and staff record management and reporting.</li>
+        <li>Contributed to software quality through structured debugging and issue resolution, working closely with the development team.</li>
+        <li>Collaborated with developers and stakeholders to communicate progress and keep work aligned with requirements.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-title">E-Commerce Website — Campuskins</div>
+      <div class="project-tech">HTML · CSS · JavaScript · MySQL · SQL</div>
+      <ul>
+        <li>Designed and built the front-end interface for an e-commerce web application, enabling product browsing, account management, and checkout flows.</li>
+        <li>Built the backend database architecture and wrote SQL queries to support product, customer, and order data.</li>
+        <li>Applied responsive design principles for a consistent experience across devices.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-title">Application Log Analyzer &amp; Issue Detector<span class="status-tag">in progress</span></div>
+      <div class="project-tech">Python · Pandas · Matplotlib</div>
+      <ul>
+        <li>Building a Python tool to parse log files and extract structured data using regular expressions.</li>
+        <li>Generating automated reports and visualizations from the parsed data using Pandas and Matplotlib.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-title">CONSUMA — Bank Management System</div>
+      <div class="project-tech">Java · Spring Boot · REST APIs</div>
+      <ul>
+        <li>Contributed as part of a team building a bank management system, supporting backend banking operations through RESTful web services.</li>
+        <li>Collaborated with team members on requirements analysis and testing to help ensure overall system quality.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu-row">
+      <div><div class="edu-name">M.Sc. Computer Science</div><div class="edu-place">Modern College, Pune</div></div>
+      <div class="edu-meta">2024 – 2026</div>
+    </div>
+    <div class="edu-row">
+      <div><div class="edu-name">B.Sc. Computer Science</div><div class="edu-place">Modern College, Pune · CGPA 7.59</div></div>
+      <div class="edu-meta">2021 – 2024</div>
+    </div>
+    <div class="edu-row">
+      <div><div class="edu-name">HSC (Science)</div><div class="edu-place">Shree Bhairavnath Vidya Mandir · 84.50%</div></div>
+      <div class="edu-meta">2020 – 2021</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="cert-row"><div class="edu-name">Java Development</div><div class="edu-meta">Velocity Institute</div></div>
+    <div class="cert-row"><div class="edu-name">Python Programming</div><div class="edu-meta">GUVI</div></div>
+    <div class="cert-row"><div class="edu-name">C Programming</div><div class="edu-meta">SevenMentor</div></div>
+  </section>
+
+  <footer>
+    Last updated for general application use · Pune, Maharashtra
+  </footer>
+
+</div>
+</body>
+</html>
